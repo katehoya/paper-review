@@ -22,5 +22,17 @@ Mictogrid란 여러 제약이 있는 특정한 시스템 내에서의 전력 수
 뿐만 아니라 몇몇 DERs는 ramp-rate control이나 capacity limit과 같은 제약도 만족시켜야 한다.  
 위와 같은 여러 제약들을 어기게 되면 엄청난 비용이 발생하거나 운영이 불가능해지는 등의 심각한 문제이기 떄문에 microgrid control은 hard constraint가 필요하고, exact-constraint satisfaction 문제로 여겨져 왔다.  
 
+몇면 선행 연구는 최적 제어 plan을 만들기 위해 stochastic dynamic programming과 같은 최적화 기법을 이용했다.  
+그러나 대부분의 것들은 심한 계산 부담이 있었다. 그래서 large-scale microgrid system의 장기적인 측면에서는 부적절했을 뿐만 아니라 system dynamics의 stochastic feature를 충분히 포착하지도 못했다.  
+이를 해결하기 위한 방법이 고안되었는데  
+초기의 몇몇 연구는 system constraints를 고려하지 않고 microgrid 제어 문제를 풀었다.  
 
+몇몇 연구는 system constraints를 고려하여 migrogrid control problem을 연구했다.  
+1) near-constraint satisfaction으로 문제를 푼 유형.
+ - reward function에 penalty term을 logarithmic barrier method로 추가.
+ - 또한 microgrid의 DERs를 관리하는 multiple agents를 제어하기 위한 cooperative RL을 제안했다. 이는 차원의 저주를 피할 수 있었다.
+
+2) exact-constraint satisfaction로 문제를 푼 유형.
+...  
+이전의 연구와 비슷하게, 우리가 증명하고자 하는 문제도 *exact-constraint satisfaction*형식이다.  
 
