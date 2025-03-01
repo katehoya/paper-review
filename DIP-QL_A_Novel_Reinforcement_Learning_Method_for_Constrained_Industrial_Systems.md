@@ -33,6 +33,24 @@ Microgrid란 여러 제약이 있는 특정한 시스템 내에서의 전력 수
  - 또한 microgrid의 DERs를 관리하는 multiple agents를 제어하기 위한 cooperative RL을 제안했다. 이는 차원의 저주를 피할 수 있었다.
 
 2) exact-constraint satisfaction로 문제를 푼 유형.
-...  
-이전의 연구와 비슷하게, 우리가 증명하고자 하는 문제도 *exact-constraint satisfaction*형식이다.  
+ - 주로 RL응ㄹ 이용했다.
+ - Zhang.은 DERs를 관리하는 agent간 불완전한 정보를 갖고 있는 분산 microgrid system을 해결하기 위해 bi-RL 프레임워크를 제시했다.
+ - 그들의 상위 연구에서 어떤 연구자는 규칙기반 매핑을 RL agent의 의사결정과 결합하여 microgrid의 전력 균형 방정식을 정확하게 만족시켰다.
+ - 뿐만 아니라 진화 알고리즘과 RL방법을 결합하는 방식으로도 또 다른 문제를 해결했다.
+
+이전의 연구들과 비슷하게, 우리가 증명하고자 하는 문제도 *exact-constraint satisfaction*형식이다.  
+
+Microgrid control system의 분야에 국한되지 않고, exact-constraint satisfaction에 대한 연구가 많이 이루어지고 있다.  
+ - [20]-[22]의 연구는 원래 선택된, 실행 불가능한 영역에 있는 action을 가장 가까운 실행 가능한 영역으로 대체하는 방법을 제시했다.
+ - 이 때 그들은 constraint action space를 처리하기 위해 L2-projection 문제를 해결할 수 있는 층을 하나 더 쌀았다.   
+
+ - [20]에선 로봇 팔의 제어를 보장하기 위해 quadratic programming(QP)를 해결할 OptLayer를 policy network의 상단에 추가했다.
+ - 이후 로봇팔은 OptLayer의 solution을 이행하면서도 policy network 출력과의 차이도 최소화하면서 제약도 만족했다.
+ - 또한 OptLayer의 과정 중, 실행 불가능한 action이 실행 가능한 영역으로부터 얼마나 떨어졌는지를 penalty cost라고 정의하여 해당 action의 가치를 낮추게 했다.
+ - 비슷하게, [21]은 unconstrained policy와의 차이를 최소화하는 action을 선택하는 연구를 했다.
+ - 복잡한 비선형 제약을 선형 제약으로 근사하기도 했다.
+ - 
+
+
+
 
