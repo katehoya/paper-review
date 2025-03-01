@@ -17,10 +17,10 @@ Safety 제어문제가 필요한 로봇 제어문제에선, 제약 제어문제�
 그러나 제약이 있는 multiple-robot control에선 RL 방식으로 제어문제를 적용하기 힘들다.  
 ***이를 해결하기 위해 댜중 에이전트 시스템에서의 coordinated policy를 최적화하는 프레임워크를 고안했다.***   
 
-Mictogrid란 여러 제약이 있는 특정한 시스템 내에서의 전력 수요와 공급의 밸런스를 만족시키기 위해 분산된 에너지 자원(DERs)을 통하하는 시스템이다.   
+Microgrid란 여러 제약이 있는 특정한 시스템 내에서의 전력 수요와 공급의 밸런스를 만족시키기 위해 분산된 에너지 자원(DERs)을 통합하는 시스템이다.   
 병원과 같이 전력 수요가 중요한 곳에서는 이 신뢰도가 높아야 하기 때문에 *exact-constraint satisfaciton*이 필요하다.  
 뿐만 아니라 몇몇 DERs는 ramp-rate control이나 capacity limit과 같은 제약도 만족시켜야 한다.  
-위와 같은 여러 제약들을 어기게 되면 엄청난 비용이 발생하거나 운영이 불가능해지는 등의 심각한 문제이기 떄문에 microgrid control은 hard constraint가 필요하고, exact-constraint satisfaction 문제로 여겨져 왔다.  
+위와 같은 여러 제약들을 어기는 것은 엄청난 비용이 발생하거나 운영이 불가능해지는 등의 심각한 문제이기 떄문에 microgrid control은 hard constraint가 필요하고, exact-constraint satisfaction 문제로 여겨져 왔다.  
 
 몇면 선행 연구는 최적 제어 plan을 만들기 위해 stochastic dynamic programming과 같은 최적화 기법을 이용했다.  
 그러나 대부분의 것들은 심한 계산 부담이 있었다. 그래서 large-scale microgrid system의 장기적인 측면에서는 부적절했을 뿐만 아니라 system dynamics의 stochastic feature를 충분히 포착하지도 못했다.  
