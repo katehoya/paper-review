@@ -1,6 +1,6 @@
 ## DIP-QL_A_Novel_Reinforcement_Learning_Method_for_Constrained_Industrial_Systems  
 ***
-### Introduction  
+# Introduction  
 산업계에서 순차적 제어 문제(sequential control problem)을 풀기 위해 많은 시도가 있었지만 변수의 미세 조정과 최적화 문제 때문에 쉽지가 않았다.   
 최근 RL을 이용해 이 문제들을 풀기 시작했지만 실제 현장에서 사용하기는 많은 제약이 있었기에 전형적인 RL method를 적용하기엔 한계가 있었기에 제한적인 control을 해야만 했다.   
 
