@@ -35,6 +35,48 @@
 
  - 사실 이미 neural fitted Q-iteration과 같이 강화학습 세팅에서 신경망을 훈련시킬 수 있는 안정적인 방식이 존재하긴 하지만, 이 방법은 네트워크를 수백번의 반복으로 훈련시킨다.
    그러나 이런 방법은 대규모의 신경망에서 쓰이기는 너무 비효율적이다.
- - 우리는 value funation ![image](https://github.com/user-attachments/assets/7215148a-c8e7-46bc-a971-219558bd85ba)의 근사치 를 deep CNN으로 매개변수화한다.(theta는 가중치, i는 반복 횟수)
- -  
+ - 우리는 value funation ![image](https://github.com/user-attachments/assets/7215148a-c8e7-46bc-a971-219558bd85ba)의 근사를 deep CNN으로 매개변수화한다.(theta는 가중치, i는 반복 횟수)
+ - 여기서 experience replay를 하기 위해 agent의 experience를 dataset에 넣는다. et = (st,at,rt,s(t+1))  -->  D{e1,e2,...et}
+ - 그런다음 학습할 때 이 dataset에서 random하게 하나(minibatch )를 뽑아서 Q-learning의 update할 때 사용한다.
+ - 각 iteration마다 loss function은 이걸 사용한다. ![image](https://github.com/user-attachments/assets/c3fd5d0c-8d43-4909-a4f0-775265b5d24a)
+   여기서 세타i는 각 iteration에서 Q-network에서의 parameter이고 세타i-는 iteration i에서의 target을 계산할 때 쓰이는 parameter이다.
+   target network의 parameter인 세타i-는 일정한 time step C마다만 업데이트된다. 그동안은 고정. --> 매 time step마다 target이 변화하는 문제점 해결.
+
+ - 이 DQN agent를 평가하기 위해 인간에게 어려운 다양한 task들을 제공하는 Atari 2600 게임을 이용했다.  
+ - 우리는 모두 똑같은 네트워크 구조와, 하이퍼파라미터, 학습 과정(60Hz에서의 210x160의 컬러 비디오라는 고차원 데이터를 바로 input으로 받아들이는 것)을 사용했다. 
+   우리의 접근이 아주 적은 사전정보(visual image가 input이라는 것, 게임 내에서 가능한 action의 수. 그러나 각 행동이 어떤 의미를 가지는 지는 알려주지 않았다.)와 감각 입력만으로도 다양한 종류의 게임에서 강건하게 성공적인 정책을 학습한다는 것을 증명하기 위해서.
+ - 우리의 방법은 강화학습 신호와 SGD를 이용하여 대규모 신경망을 안정적으로 훈련시킬 수 있었다.
+
+ - 이러한 안정적인 학습은 agent의 'episode당 평균 점수'와 '예상 Q-value의 평균'으로 확인할 수 있었다.
+![image](https://github.com/user-attachments/assets/d1f43fec-1463-4dee-b147-214f43c66765)
+
+ - 우리는 DQN을 기존 강화학습 방법 중 Atark 2000에서 가장 성능이 좋은 방법과 비교를 했다.  
+ - 추가로 인간 프로게이머의 점수와 랜덤으로 action을 고르는 policy를 조사했다.
+ - 우리 DQN방법은 49개 중 43개의 게임에서 다른 method에서 받아들이는 추가적인 사전정보 없이도 최고의 성능을 내었다.
+ - 뿐만 아니라 49게임 전체에서 프로게이머와 비등비등한 성능을 내었고 절반 이상의 게임에서는 인간 점수의 75% 이상의 점수를 내었다.
+![image](https://github.com/user-attachments/assets/f237dc04-7741-4ee9-a766-5e0b87a63d17)
+ - 또한 우리는 추가적인 시뮬레이션에서 (replay memory, target Q-network를 분리시키는 것, Deep CNN과 같은)DQN agent의 주요 요인들을 비활성화시킴으로써 이들의 중요성을 입증하였다.
+
+***
+![image](https://github.com/user-attachments/assets/3c81926f-5e08-4c4e-88fd-65c70251ca00)  
+ - DQN agent를 2시간 동안 훈련시키고 t-SNE 알고리즘을 DQN의 last hidden layer에 적용했을 때의 그래프이다.  
+ - 각 점들은 state value(maximum expected reward of a state)에 따라 dark blue(젤 낮은 V)부터 dark red(젤 높은 V)까지 분포해있다.
+
+ - 적들로 꽉 차 있는 화면(오른쪽 위)와 아예 적들이 없는 화면(왼쪽 아래)에서는 높은 state value를 예측했다.
+   왜냐면 적들을 잠재적인 reward로 보기때문에 적이 많으면 많은 reward로 보고, 아예 적이 없어도 새로운 stage의 시작을 의미하기 때문에 높은 state value로써 파악하는 것이다.
+(절반만 차 있는 화면보다 아예 빈 화면을 더 높은 state value로 예측하는 게 인상적이다)
+ - 또한 orange bunker는 별로 중요하지 않기 때문에 낮은 state value로 파악한다.  
+***
+ - 그다음 Space Invaders에서 성공적인 성능을 보인 DQN의 representation을 (고차원 데이터 시각화를 하기 위해 개발된)t-SNE기법을 이용하여 분석했다.  
+ - 예상대로, t-SNE 알고리즘은 시각적으로 유사한 상태들을 서로 가까운 지점에 배치했다.
+ - 흥미로운 것은 t-SNE가 DQN representation을 보고 expected reward 측면에서 비슷하다고 생각해서 비슷한 embedding을 한 것들이 딱 봤을 때는 비슷하지 않은 것들도 있었다.
+   이 것은 네트워크가 고차원 sensort input들로부터 adaptive한 행동을 지원하는 표현을 학습할 수 있다는 걸 말한다.
+ - 나아가, DQN에서 학습한 표현이 자신이 아닌 다른 Policy에 일반화될 수 있다는 것을 보였다.
    
+   
+
+
+
+
+
+     
