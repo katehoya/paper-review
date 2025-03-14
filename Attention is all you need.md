@@ -1,5 +1,5 @@
 residual connection, position-wise fully connected feed-forward network  
-
+ 
 # Attention is all you need  
 ***
 ## Abstract  
