@@ -18,7 +18,7 @@
  - 데이터의 점점 추상적인 표현들을 학습하도록 사용된 노드의 층이 이용된 최근 DNN의 발전은 인공신경망이 raw sensory data로부터 바로 object category와 같은 개념을 학습할 수 있게 되었다.  
   우리는 인간 수용장의 구조를 모방하기 위해 겹쳐진 convolutional 필터를 계층적으로 쌓은 층 사용한 deep convolutional network 구조를 사용한다.  
   이로 인해 이미지에 나타나는 local spatial correlation을 추출하고 관점, 크기의변화와 같은 자연스러운 변화에 대한 강건성도 얻을 수 있다.  
-
+***
  - 우리는 agent가 관찰, 행동, 보상의 과정을 통해 환경과 상호작용하는 것을 고려한다.  
   agent의 목표는 미래의 reward를 최대화하는 방향으로 action을 선택하는 것이다.  
   정확히는 optimal한 action-value function을 근사하기 위해 deep CNN을 이용한다.![image](https://github.com/user-attachments/assets/f92cc330-19c7-4879-8fc5-91df9f729d3a)  
@@ -69,9 +69,11 @@
 ***
  - 그다음 Space Invaders에서 성공적인 성능을 보인 DQN의 representation을 (고차원 데이터 시각화를 하기 위해 개발된)t-SNE기법을 이용하여 분석했다.  
  - 예상대로, t-SNE 알고리즘은 시각적으로 유사한 상태들을 서로 가까운 지점에 배치했다.
- - 흥미로운 것은 t-SNE가 DQN representation을 보고 expected reward 측면에서 비슷하다고 생각해서 비슷한 embedding을 한 것들이 딱 봤을 때는 비슷하지 않은 것들도 있었다.
+ - 흥미로운 것은 t-SNE가 DQN representation을 보고 expected reward 측면에서 비슷하다고 생각해서 비슷한 embedding을 한 것들이 시각적으로 딱 봤을 때는 비슷하지 않은 것들도 있었다.  
    이 것은 네트워크가 고차원 sensort input들로부터 adaptive한 행동을 지원하는 표현을 학습할 수 있다는 걸 말한다.
- - 나아가, DQN에서 학습한 표현이 자신이 아닌 다른 Policy에 일반화될 수 있다는 것을 보였다.
+   (단순한 표면적인 것이 아닌, 실제로 큰 reward를 얻을 수 있는 상황을 구별할 수 있다는 것을 의미한다.)  
+ - 나아가, DQN에서 학습한 표현이 자신이 아닌 다른 Policy에 일반화될 수 있다는 것을 보였다.  
+ - 
    
    
 
