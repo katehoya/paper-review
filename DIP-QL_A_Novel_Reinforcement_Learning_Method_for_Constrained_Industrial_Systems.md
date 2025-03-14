@@ -1,4 +1,4 @@
-## DIP-QL_A_Novel_Reinforcement_Learning_Method_for_Constrained_Industrial_Systems  
+## DIP-QL_A_Novel_Reinforcement_Learning_Method_for_Constrained_Industrial_Systems   
 ***
 # Introduction  
 산업계에서 순차적 제어 문제(sequential control problem)을 풀기 위해 많은 시도가 있었지만 변수의 미세 조정과 최적화 문제 때문에 쉽지가 않았다.   
