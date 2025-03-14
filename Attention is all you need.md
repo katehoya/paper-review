@@ -54,8 +54,8 @@ residual connection, position-wise fully connected feed-forward network
    인코더는 입력 시퀀스를 연속적인 표현으로 변환한다.  
    그거를 받아서 디코더는 하나씩 출력 시퀀스를 생성한다.
  - 각 step에서 해당 모델은 이 전에 생성된 symbol을 그 다음 symbol을 생성하는 데 추가적인 input으로 사용함으로써 자기회귀적이다.
- - Transformer는 이러한 기본적인 인코더-디코더 구조를 따르지만, 인코더와 디코더에서 self-attention과 point-wise fully connected layers를 여러 겹으로 쌓는다.
-   사진에서 왼 쪽이 인코더, 오른 쪽이 디코더이다.
+ - Transformer는 이러한 기본적인 인코더-디코더 구조를 따르지만, 인코더와 디코더에서 self-attention과 point-wise fully connected layers를 여러 겹으로 쌓는다.  
+   사진에서 왼 쪽이 인코더, 오른 쪽이 디코더이다.  
    ![image](https://github.com/user-attachments/assets/8bf2d8d2-f0a7-4b55-8c17-30cd111e9c3c)
 
 ### 3.1 Encoder and Decoder Stacks  
