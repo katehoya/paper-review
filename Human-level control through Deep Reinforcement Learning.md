@@ -1,5 +1,5 @@
 # Human-Level Control through Deep Reinforcement Learning  
-***
+*** 
 ## Abstract  
  - 강화학습의 이론은 환경 내에서 에이전트가 어떻게 최적의 컨트롤을 할 수 있는지를 심리학적, 신경과학적인 관점에서 설명한다.  
  - 그러나 강화학습을 실제 환경만큼의 복잡도에서 쓰기엔 어려움이 있었다.   
